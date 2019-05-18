@@ -1,0 +1,84 @@
+* {
+  box-sizing: border-box;
+}
+
+#WRAPPER {
+width: 640px;
+height: 1024px;
+margin:0 auto;
+padding:0px;
+}
+
+/*標題*/
+.header {
+  padding: 10px;
+  text-align: center;
+  color: White;
+  background: rgba(30,144,255,0.5);/*rgba(30,144,255,0.5)*/
+  border:2px solid White;
+  /*border-style: dashed;*/
+}
+
+.header h1 {
+  font-size: 30px;
+}
+
+/* Style the top navigation bar */
+.topnav {
+  overflow: hidden;
+  background-color: MediumSeaGreen;
+}
+
+/* Style the topnav links */
+.topnav a {
+  float: left;
+  display: block;
+  color: White;/*#f2f2f2*/
+  text-align: center;
+  padding: 12px 14px;
+  text-decoration: none;
+}
+
+/* mouse over link */
+.topnav a:hover {
+  color: Black;
+}
+
+#bar{
+  overflow: hidden;
+  background-color: rgb(204, 220, 255);
+  margin-top: 20px;
+}
+
+body {
+  font-family: Arial;
+  padding: 10px;
+  font-size: 15px;
+  background: #f1f1f1;/*#f1f1f1*/
+}
+
+.card {
+  background-color: White;/*rgb(247, 231, 139)*/
+  padding: 20px 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 0px;
+  margin-right: 0px;
+  display: block;
+  padding-left:25px;
+  font-size:15px;
+  text-align:center;
+}
+
+ul.a{
+  list-style-type: none;
+  margin:0px;
+}
+
+/* Footer */
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: #ddd;
+  margin-top: 20px;
+}
