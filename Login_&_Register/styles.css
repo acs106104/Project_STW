@@ -1,0 +1,42 @@
+.tabs { 
+    position:relative;
+    width:350px; 
+    height:420px;  
+}
+.tab{ 
+    float:left;  
+}    
+.tab > input[type=radio]{
+    display:none;
+}    
+.tab > label{
+    display:block; 
+    position:relative; 
+    min-width:40px; 
+    height:20px;  
+    margin-right:-1px; 
+    padding:5px 15px;  
+    background:#DDD;      
+    border:1px solid #AAA;  
+}    
+.tab > .content{      
+    display:none;      
+    position:absolute;      
+    top:30px;      
+    right:0;      
+    bottom:0;      
+    left:0;      
+    z-index:1;      
+    padding:10px;      
+    background:#FFF;      
+    border:1px solid #AAA;  
+}    
+.tab > input[type=radio]:checked + label{      
+    background:#FFF;      
+    border-bottom:1px solid transparent;      
+    z-index:2;  
+
+}    
+.tab > input[type=radio]:checked ~ .content{      
+    display:block;      
+}
