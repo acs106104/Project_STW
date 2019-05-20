@@ -85,7 +85,7 @@
 	   
 	   if($user_laccount == $rows["帳號"]){
 		  if($user_password == $rows["密碼"]){
-			 echo "登入成功";
+			 header("Location: ../home/home.html"); 
 		  }
 		  else{
 			 echo "密碼錯誤";
