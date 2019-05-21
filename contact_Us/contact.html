@@ -12,7 +12,7 @@
         <li><a class="active" href=""><font size="8" face="monospace">登入</font></a></li>
     </ul>
     <!--home圖-->
-    <center><img src="home圖.jpg" width="950px"></center>
+    <center><img src="../pic/主圖.png" width="950px"></center>
     <!-- Navigation Bar -->
     <div class="navbar">
         <a href="../home/home.html"><font size="8" face="monospace">首頁</font></a>
@@ -24,11 +24,40 @@
     </div>
 
     <fieldset>
-        姓名: <input type="text" name="Name">
-        電子郵件:<input type="email" name="Email">
-        主旨: <input type="text" name="Title">
-        內容: <input type="text" name="Content">
+        <font size="8" face="monospace">
+        姓名: <input type="text" name="Name" style="font-size: 24px" size="20"><br/>
+        電子郵件:<input type="email" name="Email" style="font-size: 24px" size="30"><br/>
+        主旨: <input type="text" name="Title" style="font-size: 24px" size="20"><br/>
+        內容: <textarea rows="4" cols="50" style="font-size: 24px"></textarea>
+        </font>
     </fieldset>
+
+    <div>
+    <form action="/action_page.php">
+        <label for="name">姓名</label>
+        <input type="text" id="name" name="Name" placeholder="你的名字...">
+    
+        <label for="email">電子郵箱</label>
+        <input type="email" id="email" name="email" placeholder="你的電子郵箱...">
+
+        <label for="title">主旨</label>
+        <input type="text" id="title" name="title" placeholder="你的主旨...">
+
+        <label for="Content">內容</label>
+        <textarea rows="4" cols="50" name="content" style="font-size: 24px"></textarea>
+    
+        <!--
+        <label for="country">Country</label>
+        <select id="country" name="country">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+        </select>
+        -->
+    
+        <input type="submit" value="Submit">
+      </form>
+    </div>
 
      <!--FOOTER-->
     <div class="footer">
