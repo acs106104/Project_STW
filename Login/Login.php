@@ -49,6 +49,8 @@
 				</label>
 				<br/>
 				<a href="">忘記密碼</a>
+				&nbsp;
+				<a href="../Register/Register.php">註冊帳號</a>
 			</div>
 			<!---->
 			<input type="submit" name="login" value="登入">
