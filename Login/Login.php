@@ -87,7 +87,10 @@
 	   
 	   if($user_laccount == $rows["帳號"]){
 		  if($user_password == $rows["密碼"]){
-			 header("Location: ../home/home.html"); 
+			 session_start();
+			 $_SESSION['account']=$user_laccount;
+			 $_SESSION['password']=$user_password;
+			 header("Location: ../home/home.php"); 
 		  }
 		  else{
 			 echo "密碼錯誤";

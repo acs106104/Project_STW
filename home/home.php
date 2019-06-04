@@ -7,12 +7,21 @@
 </head>
 <body>
     <!--top導航菜單-->
-    <ul>
-        <li><a href="../Register/Register.php"><div style="font-size: 80px">註冊</div></a></li>
-        <li><a class="active" href="../Login/Login.php"><div style="font-size: 80px">登入</div></a></li>
-    </ul>
+    <?php
+        echo"<ul>";
+            echo"<li><a href=\"../Register/Register.php\"><div style=\"font-size: 60px\">註冊</div></a></li>";
+        session_start();
+        if($_SESSION['account']){
+            echo"<li><a class=\"active\" href=\"../Login/Login.php\"><div style=\"font-size: 60px\">登出</div></a></li>";
+            echo"<li><a><div style=\"font-size: 60px\">"."歡迎,".$_SESSION['account']."</div></a></li>";
+            //session_unset();
+        }
+        else
+            echo"<li><a class=\"active\" href=\"../Login/Login.php\"><div style=\"font-size: 60px\">登入</div></a></li>";
+        echo"</ul>";
+    ?>
     <!--home圖-->
-    <center><img src="home圖.jpg" width="950px" height="650px"></center>
+    <center><img src="home圖.jpg" width="950px" height="650px" style="margin-top:10%"></center>
     <!-- Navigation Bar -->
     <div class="navbar">
         <a href="home.html"><div style="font-size: 80px">首頁</div></a>
