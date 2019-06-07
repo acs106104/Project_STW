@@ -89,7 +89,6 @@
 		  if($user_password == $rows["密碼"]){
 			 session_start();
 			 $_SESSION['account']=$user_laccount;
-			 $_SESSION['password']=$user_password;
 			 header("Location: ../home/home.php"); 
 		  }
 		  else{
