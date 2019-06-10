@@ -9,7 +9,7 @@
 <body>
 <?php session_start();  // 啟用交談期
    // 開啟MySQL的資料庫連接
-   $link = @mysqli_connect("localhost","root","1234") 
+   $link = @mysqli_connect("localhost","root","") 
          or die("無法開啟MySQL資料庫連接!<br/>");
    mysqli_select_db($link, "userdata");  // 選擇資料庫
    mysqli_query($link, 'SET NAMES utf8'); 
@@ -22,9 +22,9 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 	$rs=mysqli_fetch_row($data);
 ?>
 圖片:<br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[7]." width=200 height=275/>";?><br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[8]." width200 height=275/>";?><br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[9]." width=200 height=275/>";?><br/>
+<?php if($rs[7]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[7]."\" width200 height=275/>";}?><br/>
+<?php if($rs[8]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[8]."\" width200 height=275/>";}?><br/>
+<?php if($rs[9]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[9]."\" width200 height=275/>";}?><br/>
 
 名稱:<?php echo $rs[1]?><br/>
 分類:<?php echo $rs[2]?><br/>
