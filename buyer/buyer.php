@@ -16,7 +16,7 @@
   margin: auto;
   width: 1000px;
   height: 1800px;
-  background-color:#d6f5d6;
+  /*background-color:#d6f5d6;*/
 }
 ul {
   list-style-type: none;
