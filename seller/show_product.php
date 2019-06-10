@@ -7,9 +7,9 @@
 <body>
 <?php
    // 開啟MySQL的資料庫連接
-   $link = @mysqli_connect("localhost","root","") 
+   $link = @mysqli_connect("localhost","root","1234") 
          or die("無法開啟MySQL資料庫連接!<br/>");
-   mysqli_select_db($link, "product");  // 選擇資料庫
+   mysqli_select_db($link, "userdata");  // 選擇資料庫
    mysqli_query($link, 'SET NAMES utf8'); 
    $data=mysqli_query($link,"SELECT * FROM list");
 ?>

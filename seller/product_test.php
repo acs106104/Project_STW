@@ -27,7 +27,7 @@ if (isset($_POST["Insert"])) {
 	else{
 	session_start();
    //賣家(要改)
-    $_SESSION['account']="ACS106132";
+    $_SESSION['account']="ting813813";
     $Seller=$_SESSION['account'];
 	
     $img1=$_FILES["Image1"]["name"];
@@ -46,9 +46,9 @@ if (isset($_POST["Insert"])) {
     move_uploaded_file($_FILES["Image3"]["tmp_name"],"upload/$Seller/".$_FILES["Image3"]["name"]);
 	
    // 開啟MySQL的資料庫連接
-   $link = @mysqli_connect("localhost","root","") 
+   $link = @mysqli_connect("localhost","root","1234") 
          or die("無法開啟MySQL資料庫連接!<br/>");
-   mysqli_select_db($link, "product");  // 選擇資料庫
+   mysqli_select_db($link, "userdata");  // 選擇資料庫
    
    // 建立新增記錄的SQL指令字串
    $sql ="INSERT INTO list (sno, pname, pcatalog, ";
