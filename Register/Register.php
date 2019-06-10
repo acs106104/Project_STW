@@ -124,14 +124,21 @@
 			mysqli_query($link, "SET NAMES utf8"); 
 			mysqli_query($link,  "SET collation_connection = 'utf8_general_ci'");
 			if ( mysqli_query($link, $sql) ){ // 執行SQL指令
-				header("Refresh: 3; url=../Login/Login.php"); 
+
+				echo '<script language="javascript">';
+				echo 'alert("註冊成功！")';
+				echo '</script>';
+
+				header("Refresh: 1; url=../Login/Login.php"); 
 				
 			}
 			else
 				die("資料庫新增記錄失敗<br/>");
 			}
 			else
-				echo "密碼不相符";
+				echo '<script language="javascript">';
+				echo 'alert("密碼不相符")';
+				echo '</script>';
 		
 			mysqli_close($link);
 			}

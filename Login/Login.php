@@ -17,6 +17,15 @@
 				window.scrollTo(0, 1);
 			}
 		</script>
+
+	<style>
+	.tabs{position:relative;width:350px; height:520px;  }    
+	.tab{ float:left;  }    
+	.tab > input[type=radio]{display:none;}    
+	.tab > label{display:block; position:relative; min-width:40px; height:20px;  margin-right:-1px; padding:5px 15px;  background:#DDD;      border:1px solid #AAA;  }    
+	.tab > .content{      display:none;      position:absolute;      top:30px;      right:0;      bottom:0;      left:0;      z-index:1;      padding:10px;      background:#FFF;      border:1px solid #AAA;  }    
+	.tab > input[type=radio]:checked + label{      background:#FFF;      border-bottom:1px solid transparent;      z-index:2;  }    .tab > input[type=radio]:checked ~ .content{      display:block;      }
+	</style>
 </head>
 
 <body>
@@ -28,36 +37,8 @@
 				<i class="fas fa-level-down-alt"></i>
 			</h2>
 			<div class="form-style-agile">
-				<label>
-					<i class="fas fa-user"></i>
-					帳號
-				</label>
-				<input placeholder="帳號" name="laccount" type="text" required="">
-			</div>
-			<div class="form-style-agile">
-				<label>
-					<i class="fas fa-unlock-alt"></i>
-					密碼
-				</label>
-				<input placeholder="密碼" name="password" type="password" required="">
-			</div>
-			<!---->
-			<div class="wthree-text">
-				<label class="anim">
-					<input type="checkbox" class="checkbox" required="">
-					記住帳號
-				</label>
-				<br/>
-				<a href="">忘記密碼</a>
-				&nbsp;
-				<a href="../Register/Register.php">註冊帳號</a>
-			</div>
-			<!---->
-			<input type="submit" name="login" value="登入">
-		</form>
-	</div>
-
-	<?php
+			<center><font color="red">
+			<?php
 	if(isset($_POST["login"])){
 	   $link = @mysqli_connect("localhost","root","") 
 			 or die("無法開啟MySQL資料庫連接!<br/>");
@@ -65,6 +46,9 @@
 	   
 	   if($_POST['laccount']=="" || $_POST['password'] == ""){
 		  echo "帳號或密碼不可空白";
+	   }
+	   else if($_POST['code1'] != $_POST['cc']){
+			echo "驗證碼錯誤";
 	   }
 	   else{
 	   $user_laccount = $_POST['laccount'];
@@ -100,7 +84,57 @@
 	   }
 	   }
 	}
-	?>
+	?>		
+			</font>
+			</center>
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-user"></i>
+					帳號
+				</label>
+				<input placeholder="帳號" name="laccount" type="text" required="">
+			</div>
+			<div class="form-style-agile">
+				<label>
+					<i class="fas fa-unlock-alt"></i>
+					密碼
+				</label>
+				<input placeholder="密碼" name="password" type="password" required="">
+			</div>
+			<div class="form-style-agile">
+			<center>
+				<table border= "1">
+				<?php
+				$rand1 = rand(10000,99999);
+				$temp=$rand1;
+				print "<tr>";
+				print "<td><b><font color='red' size='5'> " . $rand1 . " </font></b></td>";
+				?>
+				<input type="hidden" name="cc" value="<?php echo $rand1; ?>">
+				</table>
+			</center>
+				<label>
+					<i class="fas fa-user"></i>
+					驗證碼
+				</label>
+				<input placeholder="驗證碼" name="code1" type="text" maxlength="5" required="">
+			</div>
+			<!---->
+			<div class="wthree-text">
+				<label class="anim">
+					<input type="checkbox" class="checkbox" required="">
+					我不是機器人
+				</label>
+				<br/>
+				<a href="">忘記密碼</a>
+				&nbsp;
+				<a href="../Register/Register.php">註冊帳號</a>
+			</div>
+			<!---->
+			<input type="submit" name="login" value="登入">
+		</form>
+	</div>
 
 	<div class="footer">
 		<p>= 二手交易網站 Second-hand shop =</p>

@@ -58,12 +58,10 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 <?php
 
 
-
-
-	$id = $_POST["id"];
-	$Quantity = $_POST["Quantity"];
-	$Name = $_POST["Name"];
-	$Price = $_POST["Price"];
+$id = (isset($_POST['id']) ? $_POST['id'] : '');
+ $Quantity = (isset($_POST['id']) ? $_POST["Quantity"] : '');
+ $Name = (isset($_POST['id']) ? $_POST["Name"] : '');
+ $Price = (isset($_POST['id']) ? $_POST["Price"] : '');
 	
 	
    // 取得購買的數量
@@ -73,7 +71,7 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
    $_SESSION["Name"] = $Name;
    $_SESSION["Price"] = $Price;
  
-   header("Location: savecart.php");  // 轉址
+   header("Location: ./savecart.php");  // 轉址
 
 ?>
 </table>
