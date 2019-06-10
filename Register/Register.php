@@ -97,7 +97,7 @@
 	</div>
 	<?php
 		if(isset($_POST["register"])){
-			$link = @mysqli_connect("localhost","root","1234") 
+			$link = @mysqli_connect("localhost","root","") 
 					or die("無法開啟MySQL資料庫連接!<br/>");
 			mysqli_select_db($link, "userdata");
 			
