@@ -84,6 +84,10 @@
 	   }
 	   }
 	}
+
+	if(isset($_POST["returnHome"])){
+		header("Location: ../home/home.php"); 
+	}
 	?>		
 			</font>
 			</center>
@@ -133,6 +137,7 @@
 			</div>
 			<!---->
 			<input type="submit" name="login" value="登入">
+			<input type="submit" name="returnHome" value="返回HOME">
 		</form>
 	</div>
 

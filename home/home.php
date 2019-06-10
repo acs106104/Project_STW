@@ -11,7 +11,7 @@
         echo"<ul>";
             echo"<li><a href=\"../Register/Register.php\"><div style=\"font-size: 60px\">註冊</div></a></li>";
         session_start();
-        if($_SESSION['account']){
+        if(isset($_SESSION['account'])){
             echo"<li><a class=\"active\" href=\"../Login/Login.php\"><div style=\"font-size: 60px\">登出</div></a></li>";
             echo"<li><a><div style=\"font-size: 60px\">"."歡迎,".$_SESSION['account']."</div></a></li>";
             //session_unset();
