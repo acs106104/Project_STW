@@ -1,12 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>catalog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+   <script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+	
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+	</script>
+<title>Search</title>
+</head>
+<body>
 <?php
 
 
 	$link = @mysqli_connect("localhost","root","") 
 					or die("無法開啟MySQL資料庫連接!<br/>");
 	mysqli_select_db($link, "userdata");
-			
-			
-	$check_laccount = "SELECT * FROM userdata WHERE 帳號 = 'ACS106120'";
+	session_start();	
+	$now=$_SESSION['account'];
+	$check_laccount = "SELECT * FROM userdata WHERE 帳號 = '$now'";
 	  
 	mysqli_query($link, 'SET NAMES utf8'); 
 	$result_laccount = mysqli_query($link, $check_laccount);
@@ -16,7 +38,7 @@
 		exit();
 	}
 	   
-	$rows=mysqli_fetch_array($result_laccount);  
+	$rs=mysqli_fetch_row($result_laccount); // 取回記錄 
 	
 	
 	
@@ -25,7 +47,7 @@
 	
    <!-- 登入 -->
 	<div class="sub-main-w3">
-		<form action="#" method="post">
+		<form action="change.php" method="post">
 			<h2><b>個人資料</b>
 				<i class="fas fa-level-down-alt"></i>
 			</h2>
@@ -35,7 +57,7 @@
 					<i class="fas fa-user"></i>
 					姓名
 				</label>
-				<input placeholder= "姓名" name="name" type="text" required="">
+				<input placeholder= "姓名" name="name" type="text" required="" value="<?php echo $rs[1] ?>">
 			</div>
 			<!--暱稱-->
 			<div class="form-style-agile">
@@ -43,7 +65,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					暱稱
 				</label>
-				<input placeholder="暱稱" name="nick" type="text" required="">
+				<input placeholder="暱稱" name="nick" type="text" required="" value="<?php echo $rs[2] ?>">
 			</div>
 			<!--手機號碼-->
 						<div class="form-style-agile">
@@ -51,7 +73,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					手機號碼
 				</label>
-				<input placeholder="手機號碼" name="phone" type="text" required="">
+				<input placeholder="手機號碼" name="phone" type="text" required="" value="<?php echo $rs[3] ?>">
 			</div>
 			<!--電子郵箱-->
 			<div class="form-style-agile">
@@ -59,7 +81,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					電子郵箱
 				</label>
-				<input placeholder="電子郵箱" name="mail" type="text" required="">
+				<input placeholder="電子郵箱" name="mail" type="text" required="" value="<?php echo $rs[4] ?>">
 			</div>
 			<!--地址-->
 			<div class="form-style-agile">
@@ -67,7 +89,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					地址
 				</label>
-				<input placeholder="地址" name="address" type="text" required="">
+				<input placeholder="地址" name="address" type="text" required="" value="<?php echo $rs[5] ?>">
 			</div>
 			<!--帳號-->
 			<div class="form-style-agile">
@@ -75,7 +97,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					帳號
 				</label>
-				<input placeholder="帳號" name="account" type="text" required="">
+				<input placeholder="帳號" readonly="readonly" name="account" type="text" required="" value="<?php echo $rs[6] ?>">
 			</div>
 			<!--密碼-->
 			<div class="form-style-agile">
@@ -83,7 +105,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					密碼
 				</label>
-				<input placeholder="密碼" name="pwd" type="password" required="">
+				<input placeholder="密碼" name="pwd" type="password" required="" value="<?php echo $rs[7] ?>">
 			</div>
 			<!--確認密碼-->
 			<div class="form-style-agile">
@@ -91,7 +113,7 @@
 					<i class="fas fa-unlock-alt"></i>
 					確認密碼
 				</label>
-				<input placeholder="確認密碼" name="pwd1" type="password" required="">
+				<input placeholder="確認密碼" name="pwd1" type="password" required="" value="<?php echo $rs[7] ?>">
 			</div>
 
 			<input type="submit" name="change" value="更改">
@@ -99,7 +121,7 @@
 	</div>
 	<?php
 		if(isset($_POST["change"])){
-			$link = @mysqli_connect("localhost","root","1234") 
+			$link = @mysqli_connect("localhost","root","") 
 					or die("無法開啟MySQL資料庫連接!<br/>");
 			mysqli_select_db($link, "userdata");
 			
@@ -147,12 +169,11 @@
 		}
 		
    ?>
-
 	<div class="footer">
 		<p>= 二手交易網站 Second-hand shop =</p>
 	</div>
-		
-	
+</body>	
+</html>	
 
 
 

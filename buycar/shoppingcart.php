@@ -2,11 +2,33 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>shoppingcart.php</title>
+<title>shoppingcart</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+   <script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+	
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+	</script>
 </head>
-<body bgcolor="#FFCC77" text="blue">
+<body  text="blue">
+
+<div class="sub-main-w3">
+<form action="product_test.php" method="post" Enctype="multipart/form-data">
+<h2><b>物品上架</b>
+	<i class="fas fa-level-down-alt"></i>
+</h2>
+<div class="form-style-agile">
 <table border="0">
-  <tr bgcolor="#CC99FF">
+  <tr>
    <td>功能</td><td>編號</td><td>名稱</td>
    <td>價格</td><td>數量</td></tr>
 <?php
@@ -46,5 +68,10 @@ if ($total != 0) {  // 顯示總金額
 </table>
 <hr/> | <a href="catalog.php">商品目錄</a>
 | <a href="shoppingcart.php">檢視購物車</a> |
+<a href="../buyer/buyer.php">返回會員專區</a> |
+</div>
+</form>
+</div>
+
 </body>
 </html>

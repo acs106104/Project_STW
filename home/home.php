@@ -24,9 +24,9 @@
     <center><img src="home圖.jpg" width="950px" height="650px" style="margin-top:10%"></center>
     <!-- Navigation Bar -->
     <div class="navbar">
-        <a href="home.html"><div style="font-size: 80px">首頁</div></a>
+        <a href="home.php"><div style="font-size: 80px">首頁</div></a>
         <a href=""><div style="font-size: 80px">商品</div></a>
-        <a href=""><div style="font-size: 80px">會員專區</div></a>
+        <a href="../buyer/buyer.php"><div style="font-size: 80px">會員專區</div></a>
         <a href=""><div style="font-size: 80px">購物車</div></a>
         <a href=""><div style="font-size: 80px">關於我們</div></a>
         <a href="../contact_Us/contact.html"><div style="font-size: 80px">聯絡我們</div></a>

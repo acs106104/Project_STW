@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Buyer</title>
+    <title>Seller</title>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <!--top導航菜單-->
@@ -28,10 +28,7 @@
     </div>
     <div class="navbar">
         <a href="../home/home.php"><div style="font-size: 80px">首頁</div></a>
-        <a href="person.php"><div style="font-size: 80px">個人資料</div></a>
-        <a href="change.php"><div style="font-size: 80px">更改個人資料</div></a>
-        <a href="../seller/product_test.php"><div style="font-size: 80px">商品上架</div></a>
-        <a href='../buycar/shoppingcart.php'><div style="font-size: 80px">購物車</div></a>
+        <a href="product_test.php"><div style="font-size: 80px">上架商品</div></a>
         <a href='search.php'><div style="font-size: 80px">訂單查詢</div></a>
     </div>
 

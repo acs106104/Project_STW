@@ -2,7 +2,21 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>catalog.php</title>
+<title>catalog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+   <script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+	
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+	</script>
 <?php session_start();
     //ob_start();
 if ( isset($_POST["id"]) ) {
@@ -35,16 +49,24 @@ header("Location:savecart.php");
    mysqli_query($link, 'SET NAMES utf8'); 
    $data=mysqli_query($link,"SELECT * FROM list");
 ?>
-<h1>商品</h1>
-<table border="1">
+
+<div class="sub-main-w3">
+<form action="catalog.php" method="post">
+<div class="form-style-agile">
+<h2><b>商品</b>
+	<i class="fas fa-level-down-alt"></i>
+</h2>
+
+<table border="1" width="350px" height="500px">
 <?php
 for($i=1;$i<=mysqli_num_rows($data);$i++){
 	$rs=mysqli_fetch_row($data);
 ?>
 圖片:<br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[7]." width=200 height=275/>";?><br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[8]." width200 height=275/>";?><br/>
-<?php echo "<img alt=無照片 src=../upload/".$rs[6]."/".$rs[9]." width=200 height=275/>";?><br/>
+
+<?php if($rs[7]!=null){echo "<img alt=無照片 src=\"../seller/upload/".$rs[6]."/".$rs[7]."\" width=200 height=275/>";}?><br/>
+<?php if($rs[8]!=null){echo "<img alt=無照片 src=\"../seller/upload/".$rs[6]."/".$rs[8]."\" width=200 height=275/>";}?><br/>
+<?php if($rs[9]!=null){echo "<img alt=無照片 src=\"../seller/upload/".$rs[6]."/".$rs[9]."\" width=200 height=275/>";}?><br/>
 
 名稱:<?php echo $rs[1]?><br/>
 分類:<?php echo $rs[2]?><br/>
@@ -55,13 +77,13 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 
 編號:<?php echo $rs[0]?><br/>
 
+
 <?php $number = $rs[0];?>
 <?php $name = $rs[1];?>
 <?php $price = $rs[3];?>
 <?php $quantity = $rs[4];?>
 <br/>
 
-<form action="catalog.php" method="post">
 
 <input type = "hidden" name = "id" value = <?=$number?> >
 <input type = "hidden" name = "Quantity" value = <?=$quantity?> >
@@ -69,19 +91,16 @@ for($i=1;$i<=mysqli_num_rows($data);$i++){
 <input type = "hidden" name = "Price" value = <?=$price?> >
 
 <input type="submit" value="加入購物車" name = "love"><br/>
-
-</form>
 <hr/>
+</div>
+</form>
+</div>
+
 
 <?php } ?>
-
-
-</table>
-<hr/>| <a href="catalog.php">商品目錄</a>
+ <a href="catalog.php">商品目錄</a>
 | <a href="shoppingcart.php">檢視購物車</a> |
-
-
-
-</div>
+<a href="../buyer/buyer.php">返回會員專區</a> |
+</table>
 </body>
 </html>

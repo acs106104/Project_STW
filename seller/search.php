@@ -2,12 +2,31 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>search.php</title>
+<title>catalog</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8" />
+	<meta name="keywords" content=""/>
+	<link rel="stylesheet" href="style.css" type="text/css" media="all" />
+
+   <script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+	
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+	</script>
+<title>Search</title>
 </head>
 <body>
 
+<div class="sub-main-w3">
 <form action="search.php" method="post">
-<h1>搜尋</h1>
+<h1><b>搜尋</b>
+	<i class="fas fa-level-down-alt"></i>
+</h1>
+<div class="form-style-agile">
 按分類搜尋:
 <select name="Catalog">
 <option value="請選擇" selected="True">請選擇</option>
@@ -19,12 +38,23 @@
    <option value="文具">文具</option>
    <option value="書籍">書籍</option>
 </select>
-關鍵字搜尋
-<input type="text" name="Need" size ="10"/>
-<input type="submit" name="Insert" value="搜尋"/>
-</form>
+</div>
 
-<h1>商品</h1>
+<div class="form-style-agile">
+		<label>
+		<i class="fas fa-unlock-alt"></i>
+      關鍵字搜尋
+		</label>
+	<input placeholder="keyword" name="Need" type="text">
+</div>
+<div class="form-style-agile">
+      <center><input type="submit" name="Insert" value="搜尋"/></center></br>
+      <center><input type="submit" name="returnHome" value="返回HOME"></center>
+</div>
+
+<h2><b>商品</b>
+	<i class="fas fa-level-down-alt"></i>
+</h2>
 
 <?php
  // 開啟MySQL的資料庫連接
@@ -39,7 +69,8 @@ if (isset($_POST["Catalog"]) && isset($_POST["Need"])){
    @$need=$_POST["Need"];
    if($catalog =="請選擇"){
       if($need ==""){
-         echo"請選擇類別or輸入關鍵字";
+         //echo"請選擇類別or輸入關鍵字";
+         $data=mysqli_query($link,"SELECT * FROM list");
       }
       //沒有類別 只有關鍵字 ->顯示所有包含這個字的商品
       else if($need !=""){
@@ -68,8 +99,12 @@ if (isset($_POST["Catalog"]) && isset($_POST["Need"])){
    }
 }
 
-?>
+if(isset($_POST["returnHome"])){
+   header("Location: ../home/home.php"); 
+}
 
+?>
+<div class="form-style-agile">
 <table border="1">
 <?php
 for($i=1;$i<=@mysqli_num_rows($data);$i++){
@@ -87,9 +122,12 @@ for($i=1;$i<=@mysqli_num_rows($data);$i++){
 <?php if($rs[7]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[7]."\" width200 height=275/>";}?><br/>
 <?php if($rs[8]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[8]."\" width200 height=275/>";}?><br/>
 <?php if($rs[9]!=null){echo "<img alt=無照片 src=\"./upload/".$rs[6]."/".$rs[9]."\" width200 height=275/>";}?><br/>
-<?php } ?>
+<?php echo"<hr>";} ?>
 
 </table>
+</div>
+</form>
+</div>
 
 </body>
 </html>
